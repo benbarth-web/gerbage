@@ -1,6 +1,4 @@
-p {
-	
-}
+p {}
 
 body {
 	font-family: Helvetica, sans-serif;
@@ -17,4 +15,39 @@ body {
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
+}
+
+.corner-ribbon {
+	width: 200px;
+	background: #39d;
+	position: absolute;
+	top: 25px;
+	left: -50px;
+	text-align: center;
+	line-height: 50px;
+	letter-spacing: 1px;
+	color: #f0f0f0;
+	transform: rotate(-45deg);
+	-webkit-transform: rotate(-45deg);
+}
+
+.corner-ribbon a {
+	color: #f0f0f0;
+	text-decoration: none;
+}
+
+.corner-ribbon.top-right {
+	top: 25px;
+	right: -50px;
+	left: auto;
+	transform: rotate(45deg);
+	-webkit-transform: rotate(45deg);
+}
+
+.corner-ribbon.sticky {
+	position: fixed;
+}
+
+.corner-ribbon.shadow {
+	box-shadow: 0 0 3px rgba(0, 0, 0, .3);
 }
