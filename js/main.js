@@ -1,5 +1,5 @@
 $(function() {
-    $('#hash').text(window.location.hash.substring(1));
+    $('#hash').text(window.location.hash.substring(1).split("+").join(" "));
     $("random-gif").attr("src", "/img/loading.gif");
     $.ajax("https://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=garbage", {
         success: function(data, textStatus, jqXHR) {
