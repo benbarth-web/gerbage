@@ -32,12 +32,16 @@ $(function () {
 			redirectTimeout = prompt("Number of seconds until redirect:", 10);
 		}
 		redirectTimeout *= 1000;
+
 		var newObj = { message, redirectUrl, redirectTimeout }
-		//var baseUrl = window.location.href.substr(0, window.location.href.indexOf("#"));
 		var baseUrl = window.location.href.replace(window.location.hash, '');
-		//window.location.href = "#" + btoa(JSON.stringify(newObj));
 		var newUrl = baseUrl + "#" + btoa(encodeURIComponent(JSON.stringify(newObj)));
-		alert("The URL has been copied to the clipboard. " + newUrl)
-		copyTextToClipboard(newUrl);
+
+		if (typeof copyTextToClipboard === "function") {
+			alert("The URL has been copied to the clipboard. " + newUrl)
+			copyTextToClipboard(newUrl);
+		} else {
+			window.location.href = newUrl;
+		}
 	}
 })
