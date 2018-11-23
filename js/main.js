@@ -26,7 +26,7 @@ $(function () {
 
 	share = function () {
 		var message = prompt("Message to display:");
-		var redirectUrl = prompt("Redirect to URL:");
+		var redirectUrl = prompt("Redirect to URL (Optional):");
 		var redirectTimeout;
 		if (redirectUrl) {
 			redirectTimeout = prompt("Number of seconds until redirect:", 10);
