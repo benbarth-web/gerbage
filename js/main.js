@@ -50,9 +50,8 @@ $(function () {
 
 		var newUrl = createShareUrl(message, image, null, null);
 
-		if (typeof copyTextToClipboard === "function") {
-			alert("The URL has been copied to the clipboard. " + newUrl)
-			copyTextToClipboard(newUrl);
+		if (typeof copyTextToClipboard === "function" && copyTextToClipboard(newUrl)) {
+			alert("The URL has been copied to the clipboard. " + newUrl);
 		}
 		window.location.href = newUrl;
 	}
