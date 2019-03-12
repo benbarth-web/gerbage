@@ -48,7 +48,7 @@ $(function () {
 		var message = prompt("Include an optional message:");
 		var image = $("#random-gif").attr("src");
 
-		var newUrl = createShareUrl(message, image, null, null);
+		var newUrl = createShareUrl(message, image);
 
 		if (typeof copyTextToClipboard === "function" && copyTextToClipboard(newUrl)) {
 			alert("The URL has been copied to the clipboard. " + newUrl);
