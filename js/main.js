@@ -15,10 +15,6 @@ $(function () {
 		obj = JSON.parse(hashDecoded);
 	}
 
-	if (obj && obj.message) {
-		$('#message').text(obj.message);
-	}
-
 	if (obj && obj.image) {
 		$("#random-gif").attr("src", obj.image);
 	} else {
@@ -33,22 +29,30 @@ $(function () {
 		})
 	}
 
+	if (obj && obj.message) {
+		$('#message').text(obj.message);
+	}
+
 	if (obj && obj.redirectUrl && obj.redirectTimeout) {
 		window.setTimeout(function () {
 			window.location.href = obj.redirectUrl;
 		}, obj.redirectTimeout);
 	}
 
-	createShareUrl = function (message, image, redirectUrl, redirectTimeout) {
-		var newObj = { message, image, redirectUrl, redirectTimeout }
+	createShareUrl = function (image, message, redirectUrl, redirectTimeout) {
+		image = image || undefined;
+		message = message || undefined;
+		redirectUrl = redirectUrl || undefined;
+		redirectTimeout = redirectTimeout || undefined;
+		var newObj = { image, message, redirectUrl, redirectTimeout }
 		return baseUrl() + "#" + btoa(encodeURIComponent(JSON.stringify(newObj)));
 	}
 
 	share = function () {
-		var message = prompt("Include an optional message:");
 		var image = $("#random-gif").attr("src");
+		var message = prompt("Include an optional message:")
 
-		var newUrl = createShareUrl(message, image);
+		var newUrl = createShareUrl(image, message);
 
 		if (typeof copyTextToClipboard === "function" && copyTextToClipboard(newUrl)) {
 			alert("The URL has been copied to the clipboard. " + newUrl);
