@@ -17,6 +17,11 @@ body {
 	transform: translate(-50%, -50%);
 }
 
+.bottom {
+	position: fixed;
+	bottom: 0px;
+}
+
 .corner-ribbon {
 	width: 200px;
 	background: #39d;
